@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tarun ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body,html{margin:0;padding:0;height:100%;overflow:hidden;background:#000;color:#fff;font-family:Arial}
+  
+  /* Gift screen */
+  #gift{
+    position:fixed;top:0;left:0;width:100%;height:100%;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    background:#000;z-index:10;
+  }
+  .gift-box{
+    width:30%;height:45%;
+    cursor:pointer;
+    animation:pulse 2s infinite;
+    filter:drop-shadow(0 0 40px #ff33aa);
+  }
+  .gift-box:hover{transform:scale(1.15);}
+  
+video{
+    position:fixed;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    
+    /* ←←← BAS YE EK LINE CHANGE KAR →→→ */
+    width: 89%;           /* ←←← YAHAN % BADAL DE (80% se 110% tak try kar) */
+    
+    height: auto;         /* ←←← height auto rakhna best hai */
+    object-fit: contain;
+    background:#000;
+  }
+
+  @keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.1)}
+  }
+</style>
+</head>
+<body>
+
+<!-- Cute glowing gift box (click karne pe video start) -->
+<div id="gift">
+  <h1 style="font-size:6.5rem;margin-bottom:20px;">Tarun ♡</h1>
+  
+  <!-- Yeh cute SVG gift box hai -->
+  <svg class="gift-box" viewBox="0 0 200 200" onclick="startVideo()">
+    <rect x="40" y="70" width="120" height="90" rx="15" fill="#ff0066"/>
+    <rect x="20" y="90" width="160" height="50" rx="15" fill="#ff3399"/>
+    <rect x="75" y="50" width="50" height="70" fill="#ff66aa"/>
+    <rect x="55" y="80" width="90" height="20" fill="#ff99cc"/>
+    <!-- Bow -->
+    <circle cx="100" cy="85" r="18" fill="#ffff66"/>
+    <path d="M60 85 Q100 45 140 85" stroke="#ffff66" stroke-width="12" fill="none"/>
+    <text x="100" y="130" font-size="28" text-anchor="middle" fill="white">Tap Me ♡</text>
+  </svg>
+  
+  <p style="margin-top:30px;color:#ff6699;font-size:5.6rem">for the sir by Pistas/luna/bano from heart</p>
+</div>
+
+<!-- Jenny video (pehle hidden) -->
+<video id="jenny" loop playsinline>
+  <source src="jenny4k.mp4" type="video/mp4">
+</video>
+
+<script>
+function startVideo() {
+  document.getElementById('gift').style.display = 'none';
+  const v = document.getElementById('jenny');
+  v.style.opacity = 1;
+  v.muted = false;
+  v.play();
+}
+</script>
+
+</body>
+</html>
